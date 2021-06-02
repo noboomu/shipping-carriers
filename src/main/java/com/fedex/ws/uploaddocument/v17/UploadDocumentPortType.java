@@ -1,12 +1,15 @@
 
 package com.fedex.ws.uploaddocument.v17;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -27,6 +30,31 @@ public interface UploadDocumentPortType {
      * 
      * @param uploadDocumentsRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.uploaddocument.v17.UploadDocumentsReply>
+     */
+    @WebMethod(operationName = "uploadDocuments", action = "http://fedex.com/ws/uploaddocument/v17/uploadDocuments")
+    public Response<UploadDocumentsReply> uploadDocumentsAsync(
+        @WebParam(name = "UploadDocumentsRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadDocumentsRequest")
+        UploadDocumentsRequest uploadDocumentsRequest);
+
+    /**
+     * 
+     * @param uploadDocumentsRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "uploadDocuments", action = "http://fedex.com/ws/uploaddocument/v17/uploadDocuments")
+    public Future<?> uploadDocumentsAsync(
+        @WebParam(name = "UploadDocumentsRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadDocumentsRequest")
+        UploadDocumentsRequest uploadDocumentsRequest,
+        @WebParam(name = "uploadDocumentsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<UploadDocumentsReply> asyncHandler);
+
+    /**
+     * 
+     * @param uploadDocumentsRequest
+     * @return
      *     returns com.fedex.ws.uploaddocument.v17.UploadDocumentsReply
      */
     @WebMethod(action = "http://fedex.com/ws/uploaddocument/v17/uploadDocuments")
@@ -39,6 +67,31 @@ public interface UploadDocumentPortType {
      * 
      * @param uploadImagesRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.uploaddocument.v17.UploadImagesReply>
+     */
+    @WebMethod(operationName = "uploadImages", action = "http://fedex.com/ws/uploaddocument/v17/uploadImages")
+    public Response<UploadImagesReply> uploadImagesAsync(
+        @WebParam(name = "UploadImagesRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadImagesRequest")
+        UploadImagesRequest uploadImagesRequest);
+
+    /**
+     * 
+     * @param uploadImagesRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "uploadImages", action = "http://fedex.com/ws/uploaddocument/v17/uploadImages")
+    public Future<?> uploadImagesAsync(
+        @WebParam(name = "UploadImagesRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadImagesRequest")
+        UploadImagesRequest uploadImagesRequest,
+        @WebParam(name = "uploadImagesResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<UploadImagesReply> asyncHandler);
+
+    /**
+     * 
+     * @param uploadImagesRequest
+     * @return
      *     returns com.fedex.ws.uploaddocument.v17.UploadImagesReply
      */
     @WebMethod(action = "http://fedex.com/ws/uploaddocument/v17/uploadImages")
@@ -46,6 +99,31 @@ public interface UploadDocumentPortType {
     public UploadImagesReply uploadImages(
         @WebParam(name = "UploadImagesRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadImagesRequest")
         UploadImagesRequest uploadImagesRequest);
+
+    /**
+     * 
+     * @param uploadDocumentsWithShipmentDataRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.uploaddocument.v17.UploadDocumentsWithShipmentDataReply>
+     */
+    @WebMethod(operationName = "uploadDocumentsWithShipmentData", action = "http://fedex.com/ws/uploaddocument/v17/uploadDocumentsWithShipmentData")
+    public Response<UploadDocumentsWithShipmentDataReply> uploadDocumentsWithShipmentDataAsync(
+        @WebParam(name = "UploadDocumentsWithShipmentDataRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadDocumentsWithShipmentDataRequest")
+        UploadDocumentsWithShipmentDataRequest uploadDocumentsWithShipmentDataRequest);
+
+    /**
+     * 
+     * @param uploadDocumentsWithShipmentDataRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "uploadDocumentsWithShipmentData", action = "http://fedex.com/ws/uploaddocument/v17/uploadDocumentsWithShipmentData")
+    public Future<?> uploadDocumentsWithShipmentDataAsync(
+        @WebParam(name = "UploadDocumentsWithShipmentDataRequest", targetNamespace = "http://fedex.com/ws/uploaddocument/v17", partName = "UploadDocumentsWithShipmentDataRequest")
+        UploadDocumentsWithShipmentDataRequest uploadDocumentsWithShipmentDataRequest,
+        @WebParam(name = "uploadDocumentsWithShipmentDataResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<UploadDocumentsWithShipmentDataReply> asyncHandler);
 
     /**
      * 

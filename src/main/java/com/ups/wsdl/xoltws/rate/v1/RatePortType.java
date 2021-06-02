@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws.rate.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws.rate.v1.RateRequest;
 import com.ups.xmlschema.xoltws.rate.v1.RateResponse;
 import com.ups.xmlschema.xoltws.upss.v1.UPSSecurity;
@@ -10,6 +11,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -28,6 +31,37 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface RatePortType {
 
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.rate.v1.RateResponse>
+     */
+    @WebMethod(operationName = "ProcessRate", action = "http://onlinetools.ups.com/webservices/RateBinding/v1.1")
+    public Response<RateResponse> processRateAsync(
+        @WebParam(name = "RateRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Rate/v1.1", partName = "Body")
+        RateRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessRate", action = "http://onlinetools.ups.com/webservices/RateBinding/v1.1")
+    public Future<?> processRateAsync(
+        @WebParam(name = "RateRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Rate/v1.1", partName = "Body")
+        RateRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessRateResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<RateResponse> asyncHandler);
 
     /**
      * 

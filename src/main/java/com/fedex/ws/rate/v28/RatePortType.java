@@ -1,12 +1,15 @@
 
 package com.fedex.ws.rate.v28;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -22,6 +25,31 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface RatePortType {
 
+
+    /**
+     * 
+     * @param rateRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.rate.v28.RateReply>
+     */
+    @WebMethod(operationName = "getRates", action = "http://fedex.com/ws/rate/v28/getRates")
+    public Response<RateReply> getRatesAsync(
+        @WebParam(name = "RateRequest", targetNamespace = "http://fedex.com/ws/rate/v28", partName = "RateRequest")
+        RateRequest rateRequest);
+
+    /**
+     * 
+     * @param rateRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getRates", action = "http://fedex.com/ws/rate/v28/getRates")
+    public Future<?> getRatesAsync(
+        @WebParam(name = "RateRequest", targetNamespace = "http://fedex.com/ws/rate/v28", partName = "RateRequest")
+        RateRequest rateRequest,
+        @WebParam(name = "getRatesResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<RateReply> asyncHandler);
 
     /**
      * 

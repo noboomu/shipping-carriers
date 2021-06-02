@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws.ship.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws.ship.v1.ShipAcceptRequest;
 import com.ups.xmlschema.xoltws.ship.v1.ShipAcceptResponse;
 import com.ups.xmlschema.xoltws.ship.v1.ShipConfirmRequest;
@@ -14,6 +15,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -39,6 +42,37 @@ public interface ShipPortType {
      * @param upsSecurity
      * @param body
      * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.ship.v1.ShipmentResponse>
+     */
+    @WebMethod(operationName = "ProcessShipment", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.0")
+    public Response<ShipmentResponse> processShipmentAsync(
+        @WebParam(name = "ShipmentRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0", partName = "Body")
+        ShipmentRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessShipment", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.0")
+    public Future<?> processShipmentAsync(
+        @WebParam(name = "ShipmentRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0", partName = "Body")
+        ShipmentRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipmentResponse> asyncHandler);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
      *     returns com.ups.xmlschema.xoltws.ship.v1.ShipmentResponse
      * @throws ShipmentErrorMessage
      */
@@ -57,6 +91,37 @@ public interface ShipPortType {
      * @param upsSecurity
      * @param body
      * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.ship.v1.ShipConfirmResponse>
+     */
+    @WebMethod(operationName = "ProcessShipConfirm", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.0")
+    public Response<ShipConfirmResponse> processShipConfirmAsync(
+        @WebParam(name = "ShipConfirmRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0", partName = "Body")
+        ShipConfirmRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessShipConfirm", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.0")
+    public Future<?> processShipConfirmAsync(
+        @WebParam(name = "ShipConfirmRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0", partName = "Body")
+        ShipConfirmRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessShipConfirmResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipConfirmResponse> asyncHandler);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
      *     returns com.ups.xmlschema.xoltws.ship.v1.ShipConfirmResponse
      * @throws ShipConfirmErrorMessage
      */
@@ -69,6 +134,37 @@ public interface ShipPortType {
         UPSSecurity upsSecurity)
         throws ShipConfirmErrorMessage
     ;
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.ship.v1.ShipAcceptResponse>
+     */
+    @WebMethod(operationName = "ProcessShipAccept", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.0")
+    public Response<ShipAcceptResponse> processShipAcceptAsync(
+        @WebParam(name = "ShipAcceptRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0", partName = "Body")
+        ShipAcceptRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessShipAccept", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.0")
+    public Future<?> processShipAcceptAsync(
+        @WebParam(name = "ShipAcceptRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0", partName = "Body")
+        ShipAcceptRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessShipAcceptResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipAcceptResponse> asyncHandler);
 
     /**
      * 

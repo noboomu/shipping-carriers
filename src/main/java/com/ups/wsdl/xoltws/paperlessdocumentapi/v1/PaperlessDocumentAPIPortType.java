@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws.paperlessdocumentapi.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.DeleteRequest;
 import com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.DeleteResponse;
 import com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.PushToImageRepositoryRequest;
@@ -14,6 +15,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -38,6 +41,37 @@ public interface PaperlessDocumentAPIPortType {
      * @param upsSecurity
      * @param body
      * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.UploadResponse>
+     */
+    @WebMethod(operationName = "ProcessUploading", action = "http://filexfer.ups.com/webservices/PaperlessDocumentAPIBinding/v1.0")
+    public Response<UploadResponse> processUploadingAsync(
+        @WebParam(name = "UploadRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/PaperlessDocumentAPI/v1.0", partName = "Body")
+        UploadRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessUploading", action = "http://filexfer.ups.com/webservices/PaperlessDocumentAPIBinding/v1.0")
+    public Future<?> processUploadingAsync(
+        @WebParam(name = "UploadRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/PaperlessDocumentAPI/v1.0", partName = "Body")
+        UploadRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessUploadingResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<UploadResponse> asyncHandler);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
      *     returns com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.UploadResponse
      * @throws UploadErrorMessage
      */
@@ -56,6 +90,37 @@ public interface PaperlessDocumentAPIPortType {
      * @param upsSecurity
      * @param body
      * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.DeleteResponse>
+     */
+    @WebMethod(operationName = "ProcessDeleting", action = "http://filexfer.ups.com/webservices/PaperlessDocumentAPIBinding/v1.0")
+    public Response<DeleteResponse> processDeletingAsync(
+        @WebParam(name = "DeleteRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/PaperlessDocumentAPI/v1.0", partName = "Body")
+        DeleteRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessDeleting", action = "http://filexfer.ups.com/webservices/PaperlessDocumentAPIBinding/v1.0")
+    public Future<?> processDeletingAsync(
+        @WebParam(name = "DeleteRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/PaperlessDocumentAPI/v1.0", partName = "Body")
+        DeleteRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessDeletingResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<DeleteResponse> asyncHandler);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
      *     returns com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.DeleteResponse
      * @throws DeleteErrorMessage
      */
@@ -68,6 +133,37 @@ public interface PaperlessDocumentAPIPortType {
         UPSSecurity upsSecurity)
         throws DeleteErrorMessage
     ;
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.paperlessdocumentapi.v1.PushToImageRepositoryResponse>
+     */
+    @WebMethod(operationName = "ProcessPushToImageRepository", action = "http://filexfer.ups.com/webservices/PaperlessDocumentAPIBinding/v1.0")
+    public Response<PushToImageRepositoryResponse> processPushToImageRepositoryAsync(
+        @WebParam(name = "PushToImageRepositoryRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/PaperlessDocumentAPI/v1.0", partName = "Body")
+        PushToImageRepositoryRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessPushToImageRepository", action = "http://filexfer.ups.com/webservices/PaperlessDocumentAPIBinding/v1.0")
+    public Future<?> processPushToImageRepositoryAsync(
+        @WebParam(name = "PushToImageRepositoryRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/PaperlessDocumentAPI/v1.0", partName = "Body")
+        PushToImageRepositoryRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessPushToImageRepositoryResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<PushToImageRepositoryResponse> asyncHandler);
 
     /**
      * 

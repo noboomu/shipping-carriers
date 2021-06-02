@@ -1,12 +1,15 @@
 
 package com.fedex.ws.track.v19;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -27,6 +30,31 @@ public interface TrackPortType {
      * 
      * @param trackRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.track.v19.TrackReply>
+     */
+    @WebMethod(operationName = "track", action = "http://fedex.com/ws/track/v19/track")
+    public Response<TrackReply> trackAsync(
+        @WebParam(name = "TrackRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "TrackRequest")
+        TrackRequest trackRequest);
+
+    /**
+     * 
+     * @param trackRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "track", action = "http://fedex.com/ws/track/v19/track")
+    public Future<?> trackAsync(
+        @WebParam(name = "TrackRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "TrackRequest")
+        TrackRequest trackRequest,
+        @WebParam(name = "trackResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<TrackReply> asyncHandler);
+
+    /**
+     * 
+     * @param trackRequest
+     * @return
      *     returns com.fedex.ws.track.v19.TrackReply
      */
     @WebMethod(action = "http://fedex.com/ws/track/v19/track")
@@ -39,6 +67,31 @@ public interface TrackPortType {
      * 
      * @param getTrackingDocumentsRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.track.v19.GetTrackingDocumentsReply>
+     */
+    @WebMethod(operationName = "getTrackingDocuments", action = "http://fedex.com/ws/track/v19/getTrackingDocuments")
+    public Response<GetTrackingDocumentsReply> getTrackingDocumentsAsync(
+        @WebParam(name = "GetTrackingDocumentsRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "GetTrackingDocumentsRequest")
+        GetTrackingDocumentsRequest getTrackingDocumentsRequest);
+
+    /**
+     * 
+     * @param getTrackingDocumentsRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getTrackingDocuments", action = "http://fedex.com/ws/track/v19/getTrackingDocuments")
+    public Future<?> getTrackingDocumentsAsync(
+        @WebParam(name = "GetTrackingDocumentsRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "GetTrackingDocumentsRequest")
+        GetTrackingDocumentsRequest getTrackingDocumentsRequest,
+        @WebParam(name = "getTrackingDocumentsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetTrackingDocumentsReply> asyncHandler);
+
+    /**
+     * 
+     * @param getTrackingDocumentsRequest
+     * @return
      *     returns com.fedex.ws.track.v19.GetTrackingDocumentsReply
      */
     @WebMethod(action = "http://fedex.com/ws/track/v19/getTrackingDocuments")
@@ -46,6 +99,31 @@ public interface TrackPortType {
     public GetTrackingDocumentsReply getTrackingDocuments(
         @WebParam(name = "GetTrackingDocumentsRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "GetTrackingDocumentsRequest")
         GetTrackingDocumentsRequest getTrackingDocumentsRequest);
+
+    /**
+     * 
+     * @param sendNotificationsRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.track.v19.SendNotificationsReply>
+     */
+    @WebMethod(operationName = "sendNotifications", action = "http://fedex.com/ws/track/v19/sendNotifications")
+    public Response<SendNotificationsReply> sendNotificationsAsync(
+        @WebParam(name = "SendNotificationsRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "SendNotificationsRequest")
+        SendNotificationsRequest sendNotificationsRequest);
+
+    /**
+     * 
+     * @param sendNotificationsRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "sendNotifications", action = "http://fedex.com/ws/track/v19/sendNotifications")
+    public Future<?> sendNotificationsAsync(
+        @WebParam(name = "SendNotificationsRequest", targetNamespace = "http://fedex.com/ws/track/v19", partName = "SendNotificationsRequest")
+        SendNotificationsRequest sendNotificationsRequest,
+        @WebParam(name = "sendNotificationsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<SendNotificationsReply> asyncHandler);
 
     /**
      * 

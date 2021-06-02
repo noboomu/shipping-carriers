@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws._void.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws._void.v1.VoidShipmentRequest;
 import com.ups.xmlschema.xoltws._void.v1.VoidShipmentResponse;
 import com.ups.xmlschema.xoltws.upss.v1.UPSSecurity;
@@ -10,6 +11,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -28,6 +31,37 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface VoidPortType {
 
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws._void.v1.VoidShipmentResponse>
+     */
+    @WebMethod(operationName = "ProcessVoid", action = "http://onlinetools.ups.com/webservices/VoidBinding/v1.1")
+    public Response<VoidShipmentResponse> processVoidAsync(
+        @WebParam(name = "VoidShipmentRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Void/v1.1", partName = "Body")
+        VoidShipmentRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessVoid", action = "http://onlinetools.ups.com/webservices/VoidBinding/v1.1")
+    public Future<?> processVoidAsync(
+        @WebParam(name = "VoidShipmentRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/Void/v1.1", partName = "Body")
+        VoidShipmentRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessVoidResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<VoidShipmentResponse> asyncHandler);
 
     /**
      * 

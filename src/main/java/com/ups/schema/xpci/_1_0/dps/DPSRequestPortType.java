@@ -1,6 +1,7 @@
 
 package com.ups.schema.xpci._1_0.dps;
 
+import java.util.concurrent.Future;
 import com.ups.schema.xpci._1_0.auth.AccessRequest;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
@@ -8,6 +9,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -25,6 +28,37 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface DPSRequestPortType {
 
+
+    /**
+     * 
+     * @param accessRequest
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.schema.xpci._1_0.dps.DeniedPartyScreenerResponse>
+     */
+    @WebMethod(operationName = "ProcessDPSRequest", action = "http://www.ups.com/webservices/DPSRequestBinding")
+    public Response<DeniedPartyScreenerResponse> processDPSRequestAsync(
+        @WebParam(name = "DeniedPartyScreenerRequest", targetNamespace = "http://www.ups.com/schema/xpci/1.0/dps", partName = "Body")
+        DeniedPartyScreenerRequest body,
+        @WebParam(name = "AccessRequest", targetNamespace = "http://www.ups.com/schema/xpci/1.0/auth", header = true, partName = "AccessRequest")
+        AccessRequest accessRequest);
+
+    /**
+     * 
+     * @param accessRequest
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessDPSRequest", action = "http://www.ups.com/webservices/DPSRequestBinding")
+    public Future<?> processDPSRequestAsync(
+        @WebParam(name = "DeniedPartyScreenerRequest", targetNamespace = "http://www.ups.com/schema/xpci/1.0/dps", partName = "Body")
+        DeniedPartyScreenerRequest body,
+        @WebParam(name = "AccessRequest", targetNamespace = "http://www.ups.com/schema/xpci/1.0/auth", header = true, partName = "AccessRequest")
+        AccessRequest accessRequest,
+        @WebParam(name = "ProcessDPSRequestResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<DeniedPartyScreenerResponse> asyncHandler);
 
     /**
      * 

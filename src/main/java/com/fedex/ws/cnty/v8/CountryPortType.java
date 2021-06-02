@@ -1,12 +1,15 @@
 
 package com.fedex.ws.cnty.v8;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -22,6 +25,31 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface CountryPortType {
 
+
+    /**
+     * 
+     * @param validatePostalRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.cnty.v8.ValidatePostalReply>
+     */
+    @WebMethod(operationName = "validatePostal", action = "http://fedex.com/ws/cnty/v8/validatePostal")
+    public Response<ValidatePostalReply> validatePostalAsync(
+        @WebParam(name = "ValidatePostalRequest", targetNamespace = "http://fedex.com/ws/cnty/v8", partName = "ValidatePostalRequest")
+        ValidatePostalRequest validatePostalRequest);
+
+    /**
+     * 
+     * @param validatePostalRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "validatePostal", action = "http://fedex.com/ws/cnty/v8/validatePostal")
+    public Future<?> validatePostalAsync(
+        @WebParam(name = "ValidatePostalRequest", targetNamespace = "http://fedex.com/ws/cnty/v8", partName = "ValidatePostalRequest")
+        ValidatePostalRequest validatePostalRequest,
+        @WebParam(name = "validatePostalResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ValidatePostalReply> asyncHandler);
 
     /**
      * 

@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws.freightrate.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws.freightrate.v1.FreightRateRequest;
 import com.ups.xmlschema.xoltws.freightrate.v1.FreightRateResponse;
 import com.ups.xmlschema.xoltws.upss.v1.UPSSecurity;
@@ -10,6 +11,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -28,6 +31,37 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface FreightRatePortType {
 
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.freightrate.v1.FreightRateResponse>
+     */
+    @WebMethod(operationName = "ProcessFreightRate", action = "http://onlinetools.ups.com/webservices/FreightRateBinding/v1.0")
+    public Response<FreightRateResponse> processFreightRateAsync(
+        @WebParam(name = "FreightRateRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/FreightRate/v1.0", partName = "Body")
+        FreightRateRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessFreightRate", action = "http://onlinetools.ups.com/webservices/FreightRateBinding/v1.0")
+    public Future<?> processFreightRateAsync(
+        @WebParam(name = "FreightRateRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/FreightRate/v1.0", partName = "Body")
+        FreightRateRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessFreightRateResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<FreightRateResponse> asyncHandler);
 
     /**
      * 

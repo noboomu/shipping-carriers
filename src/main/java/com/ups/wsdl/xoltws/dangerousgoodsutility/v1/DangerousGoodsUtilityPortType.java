@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws.dangerousgoodsutility.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws.dangerousgoodsutility.v1.AcceptanceAuditPreCheckRequest;
 import com.ups.xmlschema.xoltws.dangerousgoodsutility.v1.AcceptanceAuditPreCheckResponse;
 import com.ups.xmlschema.xoltws.dangerousgoodsutility.v1.ChemicalReferenceDataRequest;
@@ -12,6 +13,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -36,6 +39,37 @@ public interface DangerousGoodsUtilityPortType {
      * @param upsSecurity
      * @param body
      * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.dangerousgoodsutility.v1.AcceptanceAuditPreCheckResponse>
+     */
+    @WebMethod(operationName = "ProcessAcceptanceAuditPreCheck", action = "http://onlinetools.ups.com/webservices/DangerousGoodsUtilityBinding/v1.0")
+    public Response<AcceptanceAuditPreCheckResponse> processAcceptanceAuditPreCheckAsync(
+        @WebParam(name = "AcceptanceAuditPreCheckRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/DangerousGoodsUtility/v1.0", partName = "Body")
+        AcceptanceAuditPreCheckRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessAcceptanceAuditPreCheck", action = "http://onlinetools.ups.com/webservices/DangerousGoodsUtilityBinding/v1.0")
+    public Future<?> processAcceptanceAuditPreCheckAsync(
+        @WebParam(name = "AcceptanceAuditPreCheckRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/DangerousGoodsUtility/v1.0", partName = "Body")
+        AcceptanceAuditPreCheckRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessAcceptanceAuditPreCheckResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<AcceptanceAuditPreCheckResponse> asyncHandler);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
      *     returns com.ups.xmlschema.xoltws.dangerousgoodsutility.v1.AcceptanceAuditPreCheckResponse
      * @throws AcceptanceAuditPreCheckErrorMessage
      */
@@ -48,6 +82,37 @@ public interface DangerousGoodsUtilityPortType {
         UPSSecurity upsSecurity)
         throws AcceptanceAuditPreCheckErrorMessage
     ;
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.dangerousgoodsutility.v1.ChemicalReferenceDataResponse>
+     */
+    @WebMethod(operationName = "ProcessChemicalReferenceData", action = "http://onlinetools.ups.com/webservices/DangerousGoodsUtilityBinding/v1.0")
+    public Response<ChemicalReferenceDataResponse> processChemicalReferenceDataAsync(
+        @WebParam(name = "ChemicalReferenceDataRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/DangerousGoodsUtility/v1.0", partName = "Body")
+        ChemicalReferenceDataRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessChemicalReferenceData", action = "http://onlinetools.ups.com/webservices/DangerousGoodsUtilityBinding/v1.0")
+    public Future<?> processChemicalReferenceDataAsync(
+        @WebParam(name = "ChemicalReferenceDataRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/DangerousGoodsUtility/v1.0", partName = "Body")
+        ChemicalReferenceDataRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessChemicalReferenceDataResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ChemicalReferenceDataResponse> asyncHandler);
 
     /**
      * 

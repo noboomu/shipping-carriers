@@ -1,12 +1,15 @@
 
 package com.fedex.ws.openship.v18;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -27,6 +30,31 @@ public interface OpenShipPortType {
      * 
      * @param modifyConsolidationRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ModifyConsolidationReply>
+     */
+    @WebMethod(operationName = "modifyConsolidation", action = "http://fedex.com/ws/openship/v18/modifyConsolidation")
+    public Response<ModifyConsolidationReply> modifyConsolidationAsync(
+        @WebParam(name = "ModifyConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyConsolidationRequest")
+        ModifyConsolidationRequest modifyConsolidationRequest);
+
+    /**
+     * 
+     * @param modifyConsolidationRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "modifyConsolidation", action = "http://fedex.com/ws/openship/v18/modifyConsolidation")
+    public Future<?> modifyConsolidationAsync(
+        @WebParam(name = "ModifyConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyConsolidationRequest")
+        ModifyConsolidationRequest modifyConsolidationRequest,
+        @WebParam(name = "modifyConsolidationResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ModifyConsolidationReply> asyncHandler);
+
+    /**
+     * 
+     * @param modifyConsolidationRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.ModifyConsolidationReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/modifyConsolidation")
@@ -34,6 +62,31 @@ public interface OpenShipPortType {
     public ModifyConsolidationReply modifyConsolidation(
         @WebParam(name = "ModifyConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyConsolidationRequest")
         ModifyConsolidationRequest modifyConsolidationRequest);
+
+    /**
+     * 
+     * @param validateOpenShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ValidateOpenShipmentReply>
+     */
+    @WebMethod(operationName = "validateOpenShipment", action = "http://fedex.com/ws/openship/v18/validateOpenShipment")
+    public Response<ValidateOpenShipmentReply> validateOpenShipmentAsync(
+        @WebParam(name = "ValidateOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ValidateOpenShipmentRequest")
+        ValidateOpenShipmentRequest validateOpenShipmentRequest);
+
+    /**
+     * 
+     * @param validateOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "validateOpenShipment", action = "http://fedex.com/ws/openship/v18/validateOpenShipment")
+    public Future<?> validateOpenShipmentAsync(
+        @WebParam(name = "ValidateOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ValidateOpenShipmentRequest")
+        ValidateOpenShipmentRequest validateOpenShipmentRequest,
+        @WebParam(name = "validateOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ValidateOpenShipmentReply> asyncHandler);
 
     /**
      * 
@@ -51,6 +104,31 @@ public interface OpenShipPortType {
      * 
      * @param retrieveOpenShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.RetrieveOpenShipmentReply>
+     */
+    @WebMethod(operationName = "retrieveOpenShipment", action = "http://fedex.com/ws/openship/v18/retrieveOpenShipment")
+    public Response<RetrieveOpenShipmentReply> retrieveOpenShipmentAsync(
+        @WebParam(name = "RetrieveOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveOpenShipmentRequest")
+        RetrieveOpenShipmentRequest retrieveOpenShipmentRequest);
+
+    /**
+     * 
+     * @param retrieveOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "retrieveOpenShipment", action = "http://fedex.com/ws/openship/v18/retrieveOpenShipment")
+    public Future<?> retrieveOpenShipmentAsync(
+        @WebParam(name = "RetrieveOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveOpenShipmentRequest")
+        RetrieveOpenShipmentRequest retrieveOpenShipmentRequest,
+        @WebParam(name = "retrieveOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<RetrieveOpenShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param retrieveOpenShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.RetrieveOpenShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/retrieveOpenShipment")
@@ -58,6 +136,31 @@ public interface OpenShipPortType {
     public RetrieveOpenShipmentReply retrieveOpenShipment(
         @WebParam(name = "RetrieveOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveOpenShipmentRequest")
         RetrieveOpenShipmentRequest retrieveOpenShipmentRequest);
+
+    /**
+     * 
+     * @param deleteOpenConsolidationRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.DeleteOpenConsolidationReply>
+     */
+    @WebMethod(operationName = "deleteOpenConsolidation", action = "http://fedex.com/ws/openship/v18/deleteOpenConsolidation")
+    public Response<DeleteOpenConsolidationReply> deleteOpenConsolidationAsync(
+        @WebParam(name = "DeleteOpenConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteOpenConsolidationRequest")
+        DeleteOpenConsolidationRequest deleteOpenConsolidationRequest);
+
+    /**
+     * 
+     * @param deleteOpenConsolidationRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deleteOpenConsolidation", action = "http://fedex.com/ws/openship/v18/deleteOpenConsolidation")
+    public Future<?> deleteOpenConsolidationAsync(
+        @WebParam(name = "DeleteOpenConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteOpenConsolidationRequest")
+        DeleteOpenConsolidationRequest deleteOpenConsolidationRequest,
+        @WebParam(name = "deleteOpenConsolidationResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<DeleteOpenConsolidationReply> asyncHandler);
 
     /**
      * 
@@ -75,6 +178,31 @@ public interface OpenShipPortType {
      * 
      * @param createConsolidationRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.CreateConsolidationReply>
+     */
+    @WebMethod(operationName = "createConsolidation", action = "http://fedex.com/ws/openship/v18/createConsolidation")
+    public Response<CreateConsolidationReply> createConsolidationAsync(
+        @WebParam(name = "CreateConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreateConsolidationRequest")
+        CreateConsolidationRequest createConsolidationRequest);
+
+    /**
+     * 
+     * @param createConsolidationRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "createConsolidation", action = "http://fedex.com/ws/openship/v18/createConsolidation")
+    public Future<?> createConsolidationAsync(
+        @WebParam(name = "CreateConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreateConsolidationRequest")
+        CreateConsolidationRequest createConsolidationRequest,
+        @WebParam(name = "createConsolidationResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<CreateConsolidationReply> asyncHandler);
+
+    /**
+     * 
+     * @param createConsolidationRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.CreateConsolidationReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/createConsolidation")
@@ -82,6 +210,31 @@ public interface OpenShipPortType {
     public CreateConsolidationReply createConsolidation(
         @WebParam(name = "CreateConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreateConsolidationRequest")
         CreateConsolidationRequest createConsolidationRequest);
+
+    /**
+     * 
+     * @param retrievePackageInOpenShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.RetrievePackageInOpenShipmentReply>
+     */
+    @WebMethod(operationName = "retrievePackageInOpenShipment", action = "http://fedex.com/ws/openship/v18/retrievePackageInOpenShipment")
+    public Response<RetrievePackageInOpenShipmentReply> retrievePackageInOpenShipmentAsync(
+        @WebParam(name = "RetrievePackageInOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrievePackageInOpenShipmentRequest")
+        RetrievePackageInOpenShipmentRequest retrievePackageInOpenShipmentRequest);
+
+    /**
+     * 
+     * @param retrievePackageInOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "retrievePackageInOpenShipment", action = "http://fedex.com/ws/openship/v18/retrievePackageInOpenShipment")
+    public Future<?> retrievePackageInOpenShipmentAsync(
+        @WebParam(name = "RetrievePackageInOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrievePackageInOpenShipmentRequest")
+        RetrievePackageInOpenShipmentRequest retrievePackageInOpenShipmentRequest,
+        @WebParam(name = "retrievePackageInOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<RetrievePackageInOpenShipmentReply> asyncHandler);
 
     /**
      * 
@@ -99,6 +252,31 @@ public interface OpenShipPortType {
      * 
      * @param retrieveConsolidatedCommoditiesRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.RetrieveConsolidatedCommoditiesReply>
+     */
+    @WebMethod(operationName = "retrieveConsolidatedCommodities", action = "http://fedex.com/ws/openship/v18/retrieveConsolidatedCommodities")
+    public Response<RetrieveConsolidatedCommoditiesReply> retrieveConsolidatedCommoditiesAsync(
+        @WebParam(name = "RetrieveConsolidatedCommoditiesRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveConsolidatedCommoditiesRequest")
+        RetrieveConsolidatedCommoditiesRequest retrieveConsolidatedCommoditiesRequest);
+
+    /**
+     * 
+     * @param retrieveConsolidatedCommoditiesRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "retrieveConsolidatedCommodities", action = "http://fedex.com/ws/openship/v18/retrieveConsolidatedCommodities")
+    public Future<?> retrieveConsolidatedCommoditiesAsync(
+        @WebParam(name = "RetrieveConsolidatedCommoditiesRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveConsolidatedCommoditiesRequest")
+        RetrieveConsolidatedCommoditiesRequest retrieveConsolidatedCommoditiesRequest,
+        @WebParam(name = "retrieveConsolidatedCommoditiesResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<RetrieveConsolidatedCommoditiesReply> asyncHandler);
+
+    /**
+     * 
+     * @param retrieveConsolidatedCommoditiesRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.RetrieveConsolidatedCommoditiesReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/retrieveConsolidatedCommodities")
@@ -106,6 +284,31 @@ public interface OpenShipPortType {
     public RetrieveConsolidatedCommoditiesReply retrieveConsolidatedCommodities(
         @WebParam(name = "RetrieveConsolidatedCommoditiesRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveConsolidatedCommoditiesRequest")
         RetrieveConsolidatedCommoditiesRequest retrieveConsolidatedCommoditiesRequest);
+
+    /**
+     * 
+     * @param modifyPackageInOpenShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ModifyPackageInOpenShipmentReply>
+     */
+    @WebMethod(operationName = "modifyPackageInOpenShipment", action = "http://fedex.com/ws/openship/v18/modifyPackageInOpenShipment")
+    public Response<ModifyPackageInOpenShipmentReply> modifyPackageInOpenShipmentAsync(
+        @WebParam(name = "ModifyPackageInOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyPackageInOpenShipmentRequest")
+        ModifyPackageInOpenShipmentRequest modifyPackageInOpenShipmentRequest);
+
+    /**
+     * 
+     * @param modifyPackageInOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "modifyPackageInOpenShipment", action = "http://fedex.com/ws/openship/v18/modifyPackageInOpenShipment")
+    public Future<?> modifyPackageInOpenShipmentAsync(
+        @WebParam(name = "ModifyPackageInOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyPackageInOpenShipmentRequest")
+        ModifyPackageInOpenShipmentRequest modifyPackageInOpenShipmentRequest,
+        @WebParam(name = "modifyPackageInOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ModifyPackageInOpenShipmentReply> asyncHandler);
 
     /**
      * 
@@ -123,6 +326,31 @@ public interface OpenShipPortType {
      * 
      * @param deleteShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ShipmentReply>
+     */
+    @WebMethod(operationName = "deleteShipment", action = "http://fedex.com/ws/openship/v18/deleteShipment")
+    public Response<ShipmentReply> deleteShipmentAsync(
+        @WebParam(name = "DeleteShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteShipmentRequest")
+        DeleteShipmentRequest deleteShipmentRequest);
+
+    /**
+     * 
+     * @param deleteShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deleteShipment", action = "http://fedex.com/ws/openship/v18/deleteShipment")
+    public Future<?> deleteShipmentAsync(
+        @WebParam(name = "DeleteShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteShipmentRequest")
+        DeleteShipmentRequest deleteShipmentRequest,
+        @WebParam(name = "deleteShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param deleteShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.ShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/deleteShipment")
@@ -130,6 +358,31 @@ public interface OpenShipPortType {
     public ShipmentReply deleteShipment(
         @WebParam(name = "DeleteShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteShipmentRequest")
         DeleteShipmentRequest deleteShipmentRequest);
+
+    /**
+     * 
+     * @param createOpenShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.CreateOpenShipmentReply>
+     */
+    @WebMethod(operationName = "createOpenShipment", action = "http://fedex.com/ws/openship/v18/createOpenShipment")
+    public Response<CreateOpenShipmentReply> createOpenShipmentAsync(
+        @WebParam(name = "CreateOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreateOpenShipmentRequest")
+        CreateOpenShipmentRequest createOpenShipmentRequest);
+
+    /**
+     * 
+     * @param createOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "createOpenShipment", action = "http://fedex.com/ws/openship/v18/createOpenShipment")
+    public Future<?> createOpenShipmentAsync(
+        @WebParam(name = "CreateOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreateOpenShipmentRequest")
+        CreateOpenShipmentRequest createOpenShipmentRequest,
+        @WebParam(name = "createOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<CreateOpenShipmentReply> asyncHandler);
 
     /**
      * 
@@ -147,6 +400,31 @@ public interface OpenShipPortType {
      * 
      * @param deletePendingShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.DeletePendingShipmentReply>
+     */
+    @WebMethod(operationName = "deletePendingShipment", action = "http://fedex.com/ws/openship/v18/deletePendingShipment")
+    public Response<DeletePendingShipmentReply> deletePendingShipmentAsync(
+        @WebParam(name = "DeletePendingShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeletePendingShipmentRequest")
+        DeletePendingShipmentRequest deletePendingShipmentRequest);
+
+    /**
+     * 
+     * @param deletePendingShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deletePendingShipment", action = "http://fedex.com/ws/openship/v18/deletePendingShipment")
+    public Future<?> deletePendingShipmentAsync(
+        @WebParam(name = "DeletePendingShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeletePendingShipmentRequest")
+        DeletePendingShipmentRequest deletePendingShipmentRequest,
+        @WebParam(name = "deletePendingShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<DeletePendingShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param deletePendingShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.DeletePendingShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/deletePendingShipment")
@@ -154,6 +432,31 @@ public interface OpenShipPortType {
     public DeletePendingShipmentReply deletePendingShipment(
         @WebParam(name = "DeletePendingShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeletePendingShipmentRequest")
         DeletePendingShipmentRequest deletePendingShipmentRequest);
+
+    /**
+     * 
+     * @param confirmOpenShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ConfirmOpenShipmentReply>
+     */
+    @WebMethod(operationName = "confirmOpenShipment", action = "http://fedex.com/ws/openship/v18/confirmOpenShipment")
+    public Response<ConfirmOpenShipmentReply> confirmOpenShipmentAsync(
+        @WebParam(name = "ConfirmOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ConfirmOpenShipmentRequest")
+        ConfirmOpenShipmentRequest confirmOpenShipmentRequest);
+
+    /**
+     * 
+     * @param confirmOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "confirmOpenShipment", action = "http://fedex.com/ws/openship/v18/confirmOpenShipment")
+    public Future<?> confirmOpenShipmentAsync(
+        @WebParam(name = "ConfirmOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ConfirmOpenShipmentRequest")
+        ConfirmOpenShipmentRequest confirmOpenShipmentRequest,
+        @WebParam(name = "confirmOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ConfirmOpenShipmentReply> asyncHandler);
 
     /**
      * 
@@ -171,6 +474,31 @@ public interface OpenShipPortType {
      * 
      * @param getConfirmOpenShipmentResultsRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.GetConfirmOpenShipmentResultsReply>
+     */
+    @WebMethod(operationName = "getConfirmOpenShipmentResults", action = "http://fedex.com/ws/openship/v18/getConfirmOpenShipmentResults")
+    public Response<GetConfirmOpenShipmentResultsReply> getConfirmOpenShipmentResultsAsync(
+        @WebParam(name = "GetConfirmOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetConfirmOpenShipmentResultsRequest")
+        GetConfirmOpenShipmentResultsRequest getConfirmOpenShipmentResultsRequest);
+
+    /**
+     * 
+     * @param getConfirmOpenShipmentResultsRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getConfirmOpenShipmentResults", action = "http://fedex.com/ws/openship/v18/getConfirmOpenShipmentResults")
+    public Future<?> getConfirmOpenShipmentResultsAsync(
+        @WebParam(name = "GetConfirmOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetConfirmOpenShipmentResultsRequest")
+        GetConfirmOpenShipmentResultsRequest getConfirmOpenShipmentResultsRequest,
+        @WebParam(name = "getConfirmOpenShipmentResultsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetConfirmOpenShipmentResultsReply> asyncHandler);
+
+    /**
+     * 
+     * @param getConfirmOpenShipmentResultsRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.GetConfirmOpenShipmentResultsReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/getConfirmOpenShipmentResults")
@@ -178,6 +506,31 @@ public interface OpenShipPortType {
     public GetConfirmOpenShipmentResultsReply getConfirmOpenShipmentResults(
         @WebParam(name = "GetConfirmOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetConfirmOpenShipmentResultsRequest")
         GetConfirmOpenShipmentResultsRequest getConfirmOpenShipmentResultsRequest);
+
+    /**
+     * 
+     * @param getConfirmConsolidationResultsRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.GetConfirmConsolidationResultsReply>
+     */
+    @WebMethod(operationName = "getConfirmConsolidationResults", action = "http://fedex.com/ws/openship/v18/getConfirmConsolidationResults")
+    public Response<GetConfirmConsolidationResultsReply> getConfirmConsolidationResultsAsync(
+        @WebParam(name = "GetConfirmConsolidationResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetConfirmConsolidationResultsRequest")
+        GetConfirmConsolidationResultsRequest getConfirmConsolidationResultsRequest);
+
+    /**
+     * 
+     * @param getConfirmConsolidationResultsRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getConfirmConsolidationResults", action = "http://fedex.com/ws/openship/v18/getConfirmConsolidationResults")
+    public Future<?> getConfirmConsolidationResultsAsync(
+        @WebParam(name = "GetConfirmConsolidationResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetConfirmConsolidationResultsRequest")
+        GetConfirmConsolidationResultsRequest getConfirmConsolidationResultsRequest,
+        @WebParam(name = "getConfirmConsolidationResultsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetConfirmConsolidationResultsReply> asyncHandler);
 
     /**
      * 
@@ -195,6 +548,31 @@ public interface OpenShipPortType {
      * 
      * @param modifyOpenShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ModifyOpenShipmentReply>
+     */
+    @WebMethod(operationName = "modifyOpenShipment", action = "http://fedex.com/ws/openship/v18/modifyOpenShipment")
+    public Response<ModifyOpenShipmentReply> modifyOpenShipmentAsync(
+        @WebParam(name = "ModifyOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyOpenShipmentRequest")
+        ModifyOpenShipmentRequest modifyOpenShipmentRequest);
+
+    /**
+     * 
+     * @param modifyOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "modifyOpenShipment", action = "http://fedex.com/ws/openship/v18/modifyOpenShipment")
+    public Future<?> modifyOpenShipmentAsync(
+        @WebParam(name = "ModifyOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyOpenShipmentRequest")
+        ModifyOpenShipmentRequest modifyOpenShipmentRequest,
+        @WebParam(name = "modifyOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ModifyOpenShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param modifyOpenShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.ModifyOpenShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/modifyOpenShipment")
@@ -202,6 +580,31 @@ public interface OpenShipPortType {
     public ModifyOpenShipmentReply modifyOpenShipment(
         @WebParam(name = "ModifyOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ModifyOpenShipmentRequest")
         ModifyOpenShipmentRequest modifyOpenShipmentRequest);
+
+    /**
+     * 
+     * @param confirmConsolidationRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ConfirmConsolidationReply>
+     */
+    @WebMethod(operationName = "confirmConsolidation", action = "http://fedex.com/ws/openship/v18/confirmConsolidation")
+    public Response<ConfirmConsolidationReply> confirmConsolidationAsync(
+        @WebParam(name = "ConfirmConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ConfirmConsolidationRequest")
+        ConfirmConsolidationRequest confirmConsolidationRequest);
+
+    /**
+     * 
+     * @param asyncHandler
+     * @param confirmConsolidationRequest
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "confirmConsolidation", action = "http://fedex.com/ws/openship/v18/confirmConsolidation")
+    public Future<?> confirmConsolidationAsync(
+        @WebParam(name = "ConfirmConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ConfirmConsolidationRequest")
+        ConfirmConsolidationRequest confirmConsolidationRequest,
+        @WebParam(name = "confirmConsolidationResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ConfirmConsolidationReply> asyncHandler);
 
     /**
      * 
@@ -219,6 +622,31 @@ public interface OpenShipPortType {
      * 
      * @param createPendingShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.CreateOpenShipmentReply>
+     */
+    @WebMethod(operationName = "createPendingShipment", action = "http://fedex.com/ws/openship/v18/createPendingShipment")
+    public Response<CreateOpenShipmentReply> createPendingShipmentAsync(
+        @WebParam(name = "CreatePendingShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreatePendingShipmentRequest")
+        CreateOpenShipmentRequest createPendingShipmentRequest);
+
+    /**
+     * 
+     * @param asyncHandler
+     * @param createPendingShipmentRequest
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "createPendingShipment", action = "http://fedex.com/ws/openship/v18/createPendingShipment")
+    public Future<?> createPendingShipmentAsync(
+        @WebParam(name = "CreatePendingShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreatePendingShipmentRequest")
+        CreateOpenShipmentRequest createPendingShipmentRequest,
+        @WebParam(name = "createPendingShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<CreateOpenShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param createPendingShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.CreateOpenShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/createPendingShipment")
@@ -226,6 +654,31 @@ public interface OpenShipPortType {
     public CreateOpenShipmentReply createPendingShipment(
         @WebParam(name = "CreatePendingShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "CreatePendingShipmentRequest")
         CreateOpenShipmentRequest createPendingShipmentRequest);
+
+    /**
+     * 
+     * @param getModifyOpenShipmentResultsRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.GetModifyOpenShipmentResultsReply>
+     */
+    @WebMethod(operationName = "getModifyOpenShipmentResults", action = "http://fedex.com/ws/openship/v18/getModifyOpenShipmentResults")
+    public Response<GetModifyOpenShipmentResultsReply> getModifyOpenShipmentResultsAsync(
+        @WebParam(name = "GetModifyOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetModifyOpenShipmentResultsRequest")
+        GetModifyOpenShipmentResultsRequest getModifyOpenShipmentResultsRequest);
+
+    /**
+     * 
+     * @param getModifyOpenShipmentResultsRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getModifyOpenShipmentResults", action = "http://fedex.com/ws/openship/v18/getModifyOpenShipmentResults")
+    public Future<?> getModifyOpenShipmentResultsAsync(
+        @WebParam(name = "GetModifyOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetModifyOpenShipmentResultsRequest")
+        GetModifyOpenShipmentResultsRequest getModifyOpenShipmentResultsRequest,
+        @WebParam(name = "getModifyOpenShipmentResultsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetModifyOpenShipmentResultsReply> asyncHandler);
 
     /**
      * 
@@ -243,6 +696,31 @@ public interface OpenShipPortType {
      * 
      * @param deletePackagesFromOpenShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.DeletePackagesFromOpenShipmentReply>
+     */
+    @WebMethod(operationName = "deletePackagesFromOpenShipment", action = "http://fedex.com/ws/openship/v18/deletePackagesFromOpenShipment")
+    public Response<DeletePackagesFromOpenShipmentReply> deletePackagesFromOpenShipmentAsync(
+        @WebParam(name = "DeletePackagesFromOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeletePackagesFromOpenShipmentRequest")
+        DeletePackagesFromOpenShipmentRequest deletePackagesFromOpenShipmentRequest);
+
+    /**
+     * 
+     * @param deletePackagesFromOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deletePackagesFromOpenShipment", action = "http://fedex.com/ws/openship/v18/deletePackagesFromOpenShipment")
+    public Future<?> deletePackagesFromOpenShipmentAsync(
+        @WebParam(name = "DeletePackagesFromOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeletePackagesFromOpenShipmentRequest")
+        DeletePackagesFromOpenShipmentRequest deletePackagesFromOpenShipmentRequest,
+        @WebParam(name = "deletePackagesFromOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<DeletePackagesFromOpenShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param deletePackagesFromOpenShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.DeletePackagesFromOpenShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/deletePackagesFromOpenShipment")
@@ -250,6 +728,31 @@ public interface OpenShipPortType {
     public DeletePackagesFromOpenShipmentReply deletePackagesFromOpenShipment(
         @WebParam(name = "DeletePackagesFromOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeletePackagesFromOpenShipmentRequest")
         DeletePackagesFromOpenShipmentRequest deletePackagesFromOpenShipmentRequest);
+
+    /**
+     * 
+     * @param reprintShippingDocumentsRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.ReprintShippingDocumentsReply>
+     */
+    @WebMethod(operationName = "reprintShippingDocuments", action = "http://fedex.com/ws/openship/v18/reprintShippingDocuments")
+    public Response<ReprintShippingDocumentsReply> reprintShippingDocumentsAsync(
+        @WebParam(name = "ReprintShippingDocumentsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ReprintShippingDocumentsRequest")
+        ReprintShippingDocumentsRequest reprintShippingDocumentsRequest);
+
+    /**
+     * 
+     * @param asyncHandler
+     * @param reprintShippingDocumentsRequest
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "reprintShippingDocuments", action = "http://fedex.com/ws/openship/v18/reprintShippingDocuments")
+    public Future<?> reprintShippingDocumentsAsync(
+        @WebParam(name = "ReprintShippingDocumentsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "ReprintShippingDocumentsRequest")
+        ReprintShippingDocumentsRequest reprintShippingDocumentsRequest,
+        @WebParam(name = "reprintShippingDocumentsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ReprintShippingDocumentsReply> asyncHandler);
 
     /**
      * 
@@ -267,6 +770,31 @@ public interface OpenShipPortType {
      * 
      * @param addPackagesToOpenShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.AddPackagesToOpenShipmentReply>
+     */
+    @WebMethod(operationName = "addPackagesToOpenShipment", action = "http://fedex.com/ws/openship/v18/addPackagesToOpenShipment")
+    public Response<AddPackagesToOpenShipmentReply> addPackagesToOpenShipmentAsync(
+        @WebParam(name = "AddPackagesToOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "AddPackagesToOpenShipmentRequest")
+        AddPackagesToOpenShipmentRequest addPackagesToOpenShipmentRequest);
+
+    /**
+     * 
+     * @param addPackagesToOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "addPackagesToOpenShipment", action = "http://fedex.com/ws/openship/v18/addPackagesToOpenShipment")
+    public Future<?> addPackagesToOpenShipmentAsync(
+        @WebParam(name = "AddPackagesToOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "AddPackagesToOpenShipmentRequest")
+        AddPackagesToOpenShipmentRequest addPackagesToOpenShipmentRequest,
+        @WebParam(name = "addPackagesToOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<AddPackagesToOpenShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param addPackagesToOpenShipmentRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.AddPackagesToOpenShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/addPackagesToOpenShipment")
@@ -274,6 +802,31 @@ public interface OpenShipPortType {
     public AddPackagesToOpenShipmentReply addPackagesToOpenShipment(
         @WebParam(name = "AddPackagesToOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "AddPackagesToOpenShipmentRequest")
         AddPackagesToOpenShipmentRequest addPackagesToOpenShipmentRequest);
+
+    /**
+     * 
+     * @param getCreateOpenShipmentResultsRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.GetCreateOpenShipmentResultsReply>
+     */
+    @WebMethod(operationName = "getCreateOpenShipmentResults", action = "http://fedex.com/ws/openship/v18/getCreateOpenShipmentResults")
+    public Response<GetCreateOpenShipmentResultsReply> getCreateOpenShipmentResultsAsync(
+        @WebParam(name = "GetCreateOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetCreateOpenShipmentResultsRequest")
+        GetCreateOpenShipmentResultsRequest getCreateOpenShipmentResultsRequest);
+
+    /**
+     * 
+     * @param asyncHandler
+     * @param getCreateOpenShipmentResultsRequest
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getCreateOpenShipmentResults", action = "http://fedex.com/ws/openship/v18/getCreateOpenShipmentResults")
+    public Future<?> getCreateOpenShipmentResultsAsync(
+        @WebParam(name = "GetCreateOpenShipmentResultsRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "GetCreateOpenShipmentResultsRequest")
+        GetCreateOpenShipmentResultsRequest getCreateOpenShipmentResultsRequest,
+        @WebParam(name = "getCreateOpenShipmentResultsResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetCreateOpenShipmentResultsReply> asyncHandler);
 
     /**
      * 
@@ -291,6 +844,31 @@ public interface OpenShipPortType {
      * 
      * @param retrieveConsolidationRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.RetrieveConsolidationReply>
+     */
+    @WebMethod(operationName = "retrieveConsolidation", action = "http://fedex.com/ws/openship/v18/retrieveConsolidation")
+    public Response<RetrieveConsolidationReply> retrieveConsolidationAsync(
+        @WebParam(name = "RetrieveConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveConsolidationRequest")
+        RetrieveConsolidationRequest retrieveConsolidationRequest);
+
+    /**
+     * 
+     * @param retrieveConsolidationRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "retrieveConsolidation", action = "http://fedex.com/ws/openship/v18/retrieveConsolidation")
+    public Future<?> retrieveConsolidationAsync(
+        @WebParam(name = "RetrieveConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveConsolidationRequest")
+        RetrieveConsolidationRequest retrieveConsolidationRequest,
+        @WebParam(name = "retrieveConsolidationResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<RetrieveConsolidationReply> asyncHandler);
+
+    /**
+     * 
+     * @param retrieveConsolidationRequest
+     * @return
      *     returns com.fedex.ws.openship.v18.RetrieveConsolidationReply
      */
     @WebMethod(action = "http://fedex.com/ws/openship/v18/retrieveConsolidation")
@@ -298,6 +876,31 @@ public interface OpenShipPortType {
     public RetrieveConsolidationReply retrieveConsolidation(
         @WebParam(name = "RetrieveConsolidationRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "RetrieveConsolidationRequest")
         RetrieveConsolidationRequest retrieveConsolidationRequest);
+
+    /**
+     * 
+     * @param deleteOpenShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.openship.v18.DeleteOpenShipmentReply>
+     */
+    @WebMethod(operationName = "deleteOpenShipment", action = "http://fedex.com/ws/openship/v18/deleteOpenShipment")
+    public Response<DeleteOpenShipmentReply> deleteOpenShipmentAsync(
+        @WebParam(name = "DeleteOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteOpenShipmentRequest")
+        DeleteOpenShipmentRequest deleteOpenShipmentRequest);
+
+    /**
+     * 
+     * @param deleteOpenShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deleteOpenShipment", action = "http://fedex.com/ws/openship/v18/deleteOpenShipment")
+    public Future<?> deleteOpenShipmentAsync(
+        @WebParam(name = "DeleteOpenShipmentRequest", targetNamespace = "http://fedex.com/ws/openship/v18", partName = "DeleteOpenShipmentRequest")
+        DeleteOpenShipmentRequest deleteOpenShipmentRequest,
+        @WebParam(name = "deleteOpenShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<DeleteOpenShipmentReply> asyncHandler);
 
     /**
      * 

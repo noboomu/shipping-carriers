@@ -1,12 +1,15 @@
 
 package com.fedex.ws.ship.v26;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -27,6 +30,31 @@ public interface ShipPortType {
      * 
      * @param processTagRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.ship.v26.ProcessTagReply>
+     */
+    @WebMethod(operationName = "processTag", action = "http://fedex.com/ws/ship/v26/processTag")
+    public Response<ProcessTagReply> processTagAsync(
+        @WebParam(name = "ProcessTagRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ProcessTagRequest")
+        ProcessTagRequest processTagRequest);
+
+    /**
+     * 
+     * @param processTagRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "processTag", action = "http://fedex.com/ws/ship/v26/processTag")
+    public Future<?> processTagAsync(
+        @WebParam(name = "ProcessTagRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ProcessTagRequest")
+        ProcessTagRequest processTagRequest,
+        @WebParam(name = "processTagResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ProcessTagReply> asyncHandler);
+
+    /**
+     * 
+     * @param processTagRequest
+     * @return
      *     returns com.fedex.ws.ship.v26.ProcessTagReply
      */
     @WebMethod(action = "http://fedex.com/ws/ship/v26/processTag")
@@ -34,6 +62,31 @@ public interface ShipPortType {
     public ProcessTagReply processTag(
         @WebParam(name = "ProcessTagRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ProcessTagRequest")
         ProcessTagRequest processTagRequest);
+
+    /**
+     * 
+     * @param processShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.ship.v26.ProcessShipmentReply>
+     */
+    @WebMethod(operationName = "processShipment", action = "http://fedex.com/ws/ship/v26/processShipment")
+    public Response<ProcessShipmentReply> processShipmentAsync(
+        @WebParam(name = "ProcessShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ProcessShipmentRequest")
+        ProcessShipmentRequest processShipmentRequest);
+
+    /**
+     * 
+     * @param processShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "processShipment", action = "http://fedex.com/ws/ship/v26/processShipment")
+    public Future<?> processShipmentAsync(
+        @WebParam(name = "ProcessShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ProcessShipmentRequest")
+        ProcessShipmentRequest processShipmentRequest,
+        @WebParam(name = "processShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ProcessShipmentReply> asyncHandler);
 
     /**
      * 
@@ -51,6 +104,31 @@ public interface ShipPortType {
      * 
      * @param deleteTagRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.ship.v26.ShipmentReply>
+     */
+    @WebMethod(operationName = "deleteTag", action = "http://fedex.com/ws/ship/v26/deleteTag")
+    public Response<ShipmentReply> deleteTagAsync(
+        @WebParam(name = "DeleteTagRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "DeleteTagRequest")
+        DeleteTagRequest deleteTagRequest);
+
+    /**
+     * 
+     * @param asyncHandler
+     * @param deleteTagRequest
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deleteTag", action = "http://fedex.com/ws/ship/v26/deleteTag")
+    public Future<?> deleteTagAsync(
+        @WebParam(name = "DeleteTagRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "DeleteTagRequest")
+        DeleteTagRequest deleteTagRequest,
+        @WebParam(name = "deleteTagResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param deleteTagRequest
+     * @return
      *     returns com.fedex.ws.ship.v26.ShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/ship/v26/deleteTag")
@@ -63,6 +141,31 @@ public interface ShipPortType {
      * 
      * @param deleteShipmentRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.ship.v26.ShipmentReply>
+     */
+    @WebMethod(operationName = "deleteShipment", action = "http://fedex.com/ws/ship/v26/deleteShipment")
+    public Response<ShipmentReply> deleteShipmentAsync(
+        @WebParam(name = "DeleteShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "DeleteShipmentRequest")
+        DeleteShipmentRequest deleteShipmentRequest);
+
+    /**
+     * 
+     * @param deleteShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "deleteShipment", action = "http://fedex.com/ws/ship/v26/deleteShipment")
+    public Future<?> deleteShipmentAsync(
+        @WebParam(name = "DeleteShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "DeleteShipmentRequest")
+        DeleteShipmentRequest deleteShipmentRequest,
+        @WebParam(name = "deleteShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipmentReply> asyncHandler);
+
+    /**
+     * 
+     * @param deleteShipmentRequest
+     * @return
      *     returns com.fedex.ws.ship.v26.ShipmentReply
      */
     @WebMethod(action = "http://fedex.com/ws/ship/v26/deleteShipment")
@@ -70,6 +173,31 @@ public interface ShipPortType {
     public ShipmentReply deleteShipment(
         @WebParam(name = "DeleteShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "DeleteShipmentRequest")
         DeleteShipmentRequest deleteShipmentRequest);
+
+    /**
+     * 
+     * @param validateShipmentRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.ship.v26.ShipmentReply>
+     */
+    @WebMethod(operationName = "validateShipment", action = "http://fedex.com/ws/ship/v26/validateShipment")
+    public Response<ShipmentReply> validateShipmentAsync(
+        @WebParam(name = "ValidateShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ValidateShipmentRequest")
+        ValidateShipmentRequest validateShipmentRequest);
+
+    /**
+     * 
+     * @param validateShipmentRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "validateShipment", action = "http://fedex.com/ws/ship/v26/validateShipment")
+    public Future<?> validateShipmentAsync(
+        @WebParam(name = "ValidateShipmentRequest", targetNamespace = "http://fedex.com/ws/ship/v26", partName = "ValidateShipmentRequest")
+        ValidateShipmentRequest validateShipmentRequest,
+        @WebParam(name = "validateShipmentResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ShipmentReply> asyncHandler);
 
     /**
      * 

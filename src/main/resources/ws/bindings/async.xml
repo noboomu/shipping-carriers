@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxws:bindings
+                xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb" jaxb:version="3.0"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                xmlns:jaxws="https://jakarta.ee/xml/ns/jaxws"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <jaxws:enableAsyncMapping>true</jaxws:enableAsyncMapping>
+</jaxws:bindings>

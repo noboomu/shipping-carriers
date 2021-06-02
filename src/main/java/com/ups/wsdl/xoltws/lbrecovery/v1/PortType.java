@@ -1,6 +1,7 @@
 
 package com.ups.wsdl.xoltws.lbrecovery.v1;
 
+import java.util.concurrent.Future;
 import com.ups.xmlschema.xoltws.lbrecovery.v1.LabelRecoveryRequest;
 import com.ups.xmlschema.xoltws.lbrecovery.v1.LabelRecoveryResponse;
 import com.ups.xmlschema.xoltws.upss.v1.UPSSecurity;
@@ -10,6 +11,8 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -28,6 +31,37 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 })
 public interface PortType {
 
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @return
+     *     returns jakarta.xml.ws.Response<com.ups.xmlschema.xoltws.lbrecovery.v1.LabelRecoveryResponse>
+     */
+    @WebMethod(operationName = "ProcessLabelRecovery", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.1")
+    public Response<LabelRecoveryResponse> processLabelRecoveryAsync(
+        @WebParam(name = "LabelRecoveryRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/LBRecovery/v1.0", partName = "Body")
+        LabelRecoveryRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity);
+
+    /**
+     * 
+     * @param upsSecurity
+     * @param body
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "ProcessLabelRecovery", action = "http://onlinetools.ups.com/webservices/ShipBinding/v1.1")
+    public Future<?> processLabelRecoveryAsync(
+        @WebParam(name = "LabelRecoveryRequest", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/LBRecovery/v1.0", partName = "Body")
+        LabelRecoveryRequest body,
+        @WebParam(name = "UPSSecurity", targetNamespace = "http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0", header = true, partName = "UPSSecurity")
+        UPSSecurity upsSecurity,
+        @WebParam(name = "ProcessLabelRecoveryResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<LabelRecoveryResponse> asyncHandler);
 
     /**
      * 

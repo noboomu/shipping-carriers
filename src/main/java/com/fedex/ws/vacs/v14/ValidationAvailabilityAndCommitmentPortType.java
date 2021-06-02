@@ -1,12 +1,15 @@
 
 package com.fedex.ws.vacs.v14;
 
+import java.util.concurrent.Future;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
+import jakarta.xml.ws.AsyncHandler;
+import jakarta.xml.ws.Response;
 
 
 /**
@@ -27,6 +30,31 @@ public interface ValidationAvailabilityAndCommitmentPortType {
      * 
      * @param getAllServicesAndPackagingRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.vacs.v14.GetAllServicesAndPackagingReply>
+     */
+    @WebMethod(operationName = "getAllServicesAndPackaging", action = "http://fedex.com/ws/vacs/v14/getAllServicesAndPackaging")
+    public Response<GetAllServicesAndPackagingReply> getAllServicesAndPackagingAsync(
+        @WebParam(name = "GetAllServicesAndPackagingRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "GetAllServicesAndPackagingRequest")
+        GetAllServicesAndPackagingRequest getAllServicesAndPackagingRequest);
+
+    /**
+     * 
+     * @param getAllServicesAndPackagingRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getAllServicesAndPackaging", action = "http://fedex.com/ws/vacs/v14/getAllServicesAndPackaging")
+    public Future<?> getAllServicesAndPackagingAsync(
+        @WebParam(name = "GetAllServicesAndPackagingRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "GetAllServicesAndPackagingRequest")
+        GetAllServicesAndPackagingRequest getAllServicesAndPackagingRequest,
+        @WebParam(name = "getAllServicesAndPackagingResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetAllServicesAndPackagingReply> asyncHandler);
+
+    /**
+     * 
+     * @param getAllServicesAndPackagingRequest
+     * @return
      *     returns com.fedex.ws.vacs.v14.GetAllServicesAndPackagingReply
      */
     @WebMethod(action = "http://fedex.com/ws/vacs/v14/getAllServicesAndPackaging")
@@ -39,6 +67,31 @@ public interface ValidationAvailabilityAndCommitmentPortType {
      * 
      * @param getAllSpecialServicesRequest
      * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.vacs.v14.GetAllSpecialServicesReply>
+     */
+    @WebMethod(operationName = "getAllSpecialServices", action = "http://fedex.com/ws/vacs/v14/getAllSpecialServices")
+    public Response<GetAllSpecialServicesReply> getAllSpecialServicesAsync(
+        @WebParam(name = "GetAllSpecialServicesRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "GetAllSpecialServicesRequest")
+        GetAllSpecialServicesRequest getAllSpecialServicesRequest);
+
+    /**
+     * 
+     * @param getAllSpecialServicesRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "getAllSpecialServices", action = "http://fedex.com/ws/vacs/v14/getAllSpecialServices")
+    public Future<?> getAllSpecialServicesAsync(
+        @WebParam(name = "GetAllSpecialServicesRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "GetAllSpecialServicesRequest")
+        GetAllSpecialServicesRequest getAllSpecialServicesRequest,
+        @WebParam(name = "getAllSpecialServicesResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<GetAllSpecialServicesReply> asyncHandler);
+
+    /**
+     * 
+     * @param getAllSpecialServicesRequest
+     * @return
      *     returns com.fedex.ws.vacs.v14.GetAllSpecialServicesReply
      */
     @WebMethod(action = "http://fedex.com/ws/vacs/v14/getAllSpecialServices")
@@ -46,6 +99,31 @@ public interface ValidationAvailabilityAndCommitmentPortType {
     public GetAllSpecialServicesReply getAllSpecialServices(
         @WebParam(name = "GetAllSpecialServicesRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "GetAllSpecialServicesRequest")
         GetAllSpecialServicesRequest getAllSpecialServicesRequest);
+
+    /**
+     * 
+     * @param serviceAvailabilityRequest
+     * @return
+     *     returns jakarta.xml.ws.Response<com.fedex.ws.vacs.v14.ServiceAvailabilityReply>
+     */
+    @WebMethod(operationName = "serviceAvailability", action = "http://fedex.com/ws/vacs/v14/serviceAvailability")
+    public Response<ServiceAvailabilityReply> serviceAvailabilityAsync(
+        @WebParam(name = "ServiceAvailabilityRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "ServiceAvailabilityRequest")
+        ServiceAvailabilityRequest serviceAvailabilityRequest);
+
+    /**
+     * 
+     * @param serviceAvailabilityRequest
+     * @param asyncHandler
+     * @return
+     *     returns java.util.concurrent.Future<? extends java.lang.Object>
+     */
+    @WebMethod(operationName = "serviceAvailability", action = "http://fedex.com/ws/vacs/v14/serviceAvailability")
+    public Future<?> serviceAvailabilityAsync(
+        @WebParam(name = "ServiceAvailabilityRequest", targetNamespace = "http://fedex.com/ws/vacs/v14", partName = "ServiceAvailabilityRequest")
+        ServiceAvailabilityRequest serviceAvailabilityRequest,
+        @WebParam(name = "serviceAvailabilityResponse", targetNamespace = "", partName = "asyncHandler")
+        AsyncHandler<ServiceAvailabilityReply> asyncHandler);
 
     /**
      * 
