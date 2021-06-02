@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.sinistral</groupId>
+    <artifactId>shipping-carriers</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>jar</packaging>
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <jakartaee.version>9.1.0</jakartaee.version>
+        <jakarta-ee.version>3.0.1</jakarta-ee.version>
+        <jackson-jaxrs-providers.version>2.12.3</jackson-jaxrs-providers.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-base</artifactId>
+            <classifier>jakarta</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-ri</artifactId>
+            <version>${jakarta-ee.version}</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.jws</groupId>
+            <artifactId>jakarta.jws-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>${jakarta-ee.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>${jakarta-ee.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakartaee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.2.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-providers</artifactId>
+                <version>${jackson-jaxrs-providers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>io/**/*</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <release>${java.version}</release>
+                    <compilerArgument>-parameters</compilerArgument>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+    <distributionManagement>
+        <repository>
+            <id>s1-release</id>
+            <url>https://maven.s1.solutions/repository/s1-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>s1-snapshot</id>
+            <url>https://maven.s1.solutions/repository/s1-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>
